@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banking Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('create_account') }}">Create Account</a>
+        <a href="{{ url_for('show_balance') }}">Show Balance</a>
+        <a href="{{ url_for('deposit') }}">Deposit</a>
+        <a href="{{ url_for('withdraw') }}">Withdraw</a>
+        <a href="{{ url_for('account_statement') }}">Account Statement</a>
+        <a href="{{ url_for('account_holders') }}">Account Holders</a>
+    </nav>
+    <div>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        <p>&copy; 2024 Banking System. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:venkatkris@outlook.com">venkatkris@outlook.com</a></p>
+        <p>
+            Follow us on:
+            <a href="https://www.linkedin.com/in/s-venkata-krishnan-979a70174?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">Linkedin</a> |
+            <a href="https://www.instagram.com/venkata_krishnan?igsh=cjZtbHlyZjVpajg5&utm_source=qr" target="_blank">Instagram</a> |
+            <a href="https://github.com/venkatkris15" target="_blank">GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>

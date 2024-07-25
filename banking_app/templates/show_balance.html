@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Show Balance</h2>
+<form method="POST">
+    <label for="account_number">Account Number:</label>
+    <input type="text" id="account_number" name="account_number" required>
+    <button type="submit">Show Balance</button>
+</form>
+{% if balance is not none %}
+<p>Balance for account '{{ account_number }}' is ₹{{ balance }}</p>
+{% endif %}
+{% endblock %}

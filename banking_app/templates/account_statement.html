@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Account Statement</h2>
+<form method="POST">
+    <label for="account_number">Account Number:</label>
+    <input type="text" id="account_number" name="account_number" required>
+    <button type="submit">Show Statement</button>
+    <button type="submit" name="download" value="true">Download PDF</button>
+</form>
+{% if statement %}
+<h3>Statement for account '{{ account_number }}'</h3>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Balance</th>
+    </tr>
+    {% for transaction in statement %}
+    <tr>
+        <td>{{ transaction[0] }}</td>
+        <td>{{ transaction[1] }}</td>
+        <td>{{ transaction[2] }}</td>
+        <td>{{ transaction[3] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

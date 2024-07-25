@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Withdraw</h2>
+<form method="POST">
+    <label for="account_number">Account Number:</label>
+    <input type="text" id="account_number" name="account_number" required>
+    <label for="amount">Amount to Withdraw:</label>
+    <input type="number" id="amount" name="amount" required>
+    <button type="submit">Withdraw</button>
+</form>
+{% endblock %}
